@@ -9,7 +9,8 @@ $data = json_decode($result, true);
 // una alternativa seria utilizar file_get_contents
 // $result =file_get_contents(API_URL; // si solo quieres hacer un GET de una API
 //Cerramos el proceso
-curl_close($ch);
+curl_close($ch); 
+
 ?>
 <head>
     <meta charset="UTF-8"/>
