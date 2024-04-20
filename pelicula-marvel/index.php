@@ -3,7 +3,7 @@ const API_URL = 'https://whenisthenextmcufilm.com/api';
 #inicializamos una nueva sesion de cURL = CURL handle
 $ch = curl_init(API_URL);
 //indicamos que queremos recibir el resultado de la peticion  y no mostrarla en pantalla
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $result = curl_exec($ch);
 $data = json_decode($result, true);
 // una alternativa seria utilizar file_get_contents
@@ -27,16 +27,17 @@ curl_close($ch);
 <main>
 
     <section>
-        <img src="<?= $data["poster_url"];?>" width="300" alt="poster de <?= $data["title"];?>" style="border-radius: 16px"/>
+        <img src="<?= $data["poster_url"]; ?>" width="300" alt="poster de <?= $data["title"]; ?>"
+             style="border-radius: 16px"/>
     </section>
 
     <hgroup>
-        <h3><?= $data["title"];?> se estrena en <?=$data["days_until"];?> dias</h3>
-        <p class="estreno">Fecha de estreno: <?= $data["release_date"];?></p>
-        <p>La siguiente pelicula es: <?= $data["following_production"]["title"];?></p>
+        <h3><?= $data["title"]; ?> se estrena en <?= $data["days_until"]; ?> dias</h3>
+        <p class="estreno">Fecha de estreno: <?= $data["release_date"]; ?></p>
+        <p>La siguiente pelicula es: <?= $data["following_production"]["title"]; ?></p>
 
 
-        <!--<pre style="font-size: 12px; height: 500px; overflow: scroll"><?php var_dump($data);?></pre>-->
+        <!--<pre style="font-size: 12px; height: 500px; overflow: scroll"><?php var_dump($data); ?></pre>-->
     </hgroup>
 </main>
 
@@ -50,16 +51,21 @@ curl_close($ch);
         display: grid;
         place-content: center;
     }
-section {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-.estreno{color:yellow;}
-hgroup{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
+
+    section {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .estreno {
+        color: yellow;
+    }
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 </style>
