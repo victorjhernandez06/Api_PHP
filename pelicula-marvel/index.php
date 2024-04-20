@@ -32,7 +32,7 @@ curl_close($ch);
 
     <hgroup>
         <h3><?= $data["title"];?> se estrena en <?=$data["days_until"];?> dias</h3>
-        <p>Fecha de estreno: <?= $data["release_date"];?></p>
+        <p class="estreno">Fecha de estreno: <?= $data["release_date"];?></p>
         <p>La siguiente pelicula es: <?= $data["following_production"]["title"];?></p>
 
 
@@ -43,7 +43,7 @@ curl_close($ch);
 
 <style>
     :root {
-        color-scheme: light dark;
+        background-color: #4b0e0e;
     }
 
     body {
@@ -55,7 +55,7 @@ section {
     justify-content: center;
     text-align: center;
 }
-
+.estreno{color:yellow;}
 hgroup{
     display: flex;
     flex-direction: column;
