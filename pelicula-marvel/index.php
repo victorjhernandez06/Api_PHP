@@ -9,7 +9,7 @@ $data = json_decode($result, true);
 // una alternativa seria utilizar file_get_contents
 // $result =file_get_contents(API_URL; // si solo quieres hacer un GET de una API
 //Cerramos el proceso
-curl_close($ch); 
+curl_close($ch);
 
 ?>
 <head>
@@ -35,7 +35,7 @@ curl_close($ch);
     <hgroup>
         <h3><?= $data["title"]; ?> se estrena en <?= $data["days_until"]; ?> dias</h3>
         <p class="estreno">Fecha de estreno: <?= $data["release_date"]; ?></p>
-        <p>La siguiente pelicula es: <?= $data["following_production"]["title"]; ?></p>
+        <p class="next">La siguiente pelicula es: <?= $data["following_production"]["title"]; ?></p>
 
 
         <!--<pre style="font-size: 12px; height: 500px; overflow: scroll"><?php var_dump($data); ?></pre>-->
@@ -61,6 +61,10 @@ curl_close($ch);
 
     .estreno {
         color: yellow;
+    }
+
+    .next {
+        color: darkgray;
     }
 
     hgroup {
